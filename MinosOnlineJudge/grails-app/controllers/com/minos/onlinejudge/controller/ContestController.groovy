@@ -10,9 +10,11 @@ class ContestController {
   
   def list() {
     
-    if (!session.user) {
-      redirect(controller:"user")
-      return
+    if (session.user) {
+      params.max = Math.min(max ?: 10, 100)
+      [contestList: Contest.list(params), contestTotal: Contest.count()]
+    } else {
+      redirect(controller:'user')
     }
   }
   

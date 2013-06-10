@@ -5,7 +5,7 @@ import com.minos.onlinejudge.domain.Contest
 class ContestController {
   
   def index() {
-    redirect(action: "list")
+    redirect(action: "list", params: params)
   }
   
   def list() {

@@ -30,7 +30,7 @@ class BootStrap {
     camilourd.institution = "Universidad Nacional de Colombia"
     camilourd.password = ("1234").encodeAsPassword()
     camilourd.save(true)
-    
+    */
       // -----------------
       // CONTEST DE PRUEBA
       // -----------------
@@ -40,6 +40,20 @@ class BootStrap {
     contest.startTime = new Date()
     contest.endTime = new Date()
     contest.save(true)
+    
+    Contest contest1 = new Contest()
+    contest1.title = "Test Contest #2"
+    contest1.status = 1
+    contest1.startTime = new Date()
+    contest1.endTime = new Date()
+    contest1.save(true)
+    
+    Contest contest2 = new Contest()
+    contest2.title = "Test Contest #3"
+    contest2.status = 3
+    contest2.startTime = new Date()
+    contest2.endTime = new Date()
+    contest2.save(true)
     
       // -------------------
       // PROBLEMAS DE PRUEBA
@@ -52,7 +66,7 @@ class BootStrap {
     p1.stackLimit = 32768
     p1.outputLimit = 4096
     p1.timeLimit = 4000
-    p1.uploader = eduarc
+    p1.uploader = null
     p1.contest = contest
     p1.statement = "Speaking in tonges"
     p1.title = "Speaking in tonges"
@@ -70,7 +84,7 @@ class BootStrap {
     p2.stackLimit = 32768
     p2.outputLimit = 4096
     p2.timeLimit = 4000
-    p2.uploader = camilourd
+    p2.uploader = null
     p2.contest = contest
     p2.statement = "Sum two interger values and print the result"
     p2.title = "A+B Problem"
@@ -88,7 +102,7 @@ class BootStrap {
     p3.stackLimit = 32768
     p3.outputLimit = 4096
     p3.timeLimit = 4000
-    p3.uploader = camilourd
+    p3.uploader = null
     p3.contest = contest
     p3.statement = "See in codeforces..."
     p3.title = "Easter Eggs"
@@ -97,7 +111,7 @@ class BootStrap {
     p3.save(true)
     p3.rootPath = Minos.PROBLEM_DIR + "/problem" + p3.id
     p3.save(true)
-    
+    /*
       // ----------------------
       // CONCURSANTES DE PRUEBA
       // ----------------------

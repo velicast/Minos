@@ -11,7 +11,7 @@ class BootStrap {
   
   def init = { servletContext ->
     
-    /*Minos.setNotificationTarget(submissionService)
+    Minos.setNotificationTarget(submissionService)
       // ------------------
       // USUARIOS DE PRUEBA
       // ------------------
@@ -20,7 +20,7 @@ class BootStrap {
     eduarc.email = "eduarcastrillo@gmail.com"
     eduarc.role = "user"
     eduarc.institution = "Universidad Nacional de Colombia"
-    eduarc.password = "1234"
+    eduarc.password = ("1234").encodeAsPassword()
     eduarc.save(true)
     
     def camilourd = new User()
@@ -28,7 +28,7 @@ class BootStrap {
     camilourd.email = "camilourd@gmail.com"
     camilourd.role = "user"
     camilourd.institution = "Universidad Nacional de Colombia"
-    camilourd.password = "1234"
+    camilourd.password = ("1234").encodeAsPassword()
     camilourd.save(true)
     
       // -----------------
@@ -118,7 +118,7 @@ class BootStrap {
       // --------------------
       // ENVIOS DE PRUEBA C++
       // --------------------
-    Submission ac = new Submission()
+    /*Submission ac = new Submission()
     ac.contestant = c1
     ac.date = new Date()
     ac.fileName = "ac.cpp"

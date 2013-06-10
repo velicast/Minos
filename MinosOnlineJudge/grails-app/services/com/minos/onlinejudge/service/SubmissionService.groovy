@@ -1,7 +1,6 @@
 package com.minos.onlinejudge.service
 
 import com.minos.onlinejudge.domain.Submission
-import org.hibernate.StaleObjectStateException
 
 class SubmissionService {
   

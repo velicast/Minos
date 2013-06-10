@@ -7,6 +7,13 @@ class Clarification {
   Contest contest
   User user
   
+  public Clarification() {
+    
+    question = ""
+    answer = ""
+    date = new Date()
+  }
+  
   static belongsTo = [contest:Contest, user:User]
 
   static constraints = {

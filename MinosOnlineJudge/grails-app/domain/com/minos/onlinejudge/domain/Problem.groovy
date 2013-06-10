@@ -1,6 +1,10 @@
 package com.minos.onlinejudge.domain
 
 class Problem {
+  
+  static final DEFAULT_CHECKER = 0
+  static final SPECIAL_CHECKER = 1
+  
   String title
   String rootPath
   Integer memoryLimit
@@ -15,6 +19,20 @@ class Problem {
   String author
   Contest contest
 
+  public Problem() {
+    
+    title = ""
+    rootPath = ""
+    memoryLimit = 0
+    timeLimit = 0
+    stackLimit = 0
+    outputLimit = 0
+    numberOfTest = 0
+    typeChecker = DEFAULT_CHECKER
+    tokenSeparators = "\0"
+    statement = ""
+  }
+  
   static hasMany = [solutions:Submission]
   static belongsTo = [contest:Contest]
 

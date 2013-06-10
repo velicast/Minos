@@ -8,7 +8,7 @@ class ContestController {
     redirect(action: "list", params: params)
   }
   
-  def list() {
+  def list(Integer max) {
     
     if (session.user) {
       params.max = Math.min(max ?: 10, 100)

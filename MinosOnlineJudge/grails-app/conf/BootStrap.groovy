@@ -30,7 +30,7 @@ class BootStrap {
     camilourd.institution = "Universidad Nacional de Colombia"
     camilourd.password = ("1234").encodeAsPassword()
     camilourd.save(true)
-    */
+    
       // -----------------
       // CONTEST DE PRUEBA
       // -----------------

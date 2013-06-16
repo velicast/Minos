@@ -2,7 +2,7 @@ package com.minos.onlinejudge.domain
 
 import com.minos.onlinejudge.Minos
 
-class Submission {
+class Submission implements Comparable<Submission> {
   String fileName
   String rootPath
   Date date
@@ -32,6 +32,14 @@ class Submission {
   
   static mapping = {
     version false // Required to avoid stale object exceptions when hibernate attempts a lock
+  }
+  
+  public int compareTo(Submission s) {
+    
+    if (date.before(s.date)) {
+      return -1
+    }
+    return 1
   }
 }
 

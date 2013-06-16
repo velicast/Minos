@@ -8,21 +8,20 @@ import com.minos.onlinejudge.Minos
 
 class SubmissionController {
 
-  def index() {
-    redirect(action: "submit")
-  }
-  
+  /**
+   * Realiza el envi'o de una solucio'n al Minos. El usuario actual
+   * es el que lo realiza
+   * 
+   * @param id Identificador del problema al que se le realiza
+   *        el envi'o
+   */
   def submit() {
-
-    if (!session.user) {
-      redirect(controller: "user")
-    }
+    /* Chequear permiso de acceso aqui' */
     
     def sourceFile = request.getFile("source")
     def fileName = sourceFile.getOriginalFilename()
     
-    params.problemID = 2
-    Problem problem = Problem.get(params.problemID)
+    Problem problem = Problem.get(params.id)
     Contest contest = problem.contest
     Contestant contestant = Contestant.findByUserAndContest(session.user, contest)
     
@@ -35,19 +34,14 @@ class SubmissionController {
     submission.problem = problem
     submission.save(true)
     submission.rootPath = Minos.SUBMISSION_DIR + "/sub" + submission.id
-    submission.save(true)
+    contestant.save(true)
     
     uploadFile(submission, sourceFile)
     
       // JUZGAR!!!
     Minos.judge(submission)
-    
-    redirect(controller: "contestant", action:"list", params: [id:contestant.id])
-  }
-  
-  /* Listar todos los envios que han sido realizados */
-  def list() {
-    [submissions:Submission.list()]
+ 
+    redirect(controller: "contest", action:"submissions", id : contest.id)
   }
   
   /* Tranferir archivo a carpeta de envio */

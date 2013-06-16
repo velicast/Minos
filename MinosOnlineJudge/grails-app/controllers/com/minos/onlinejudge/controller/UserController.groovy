@@ -1,16 +1,35 @@
 package com.minos.onlinejudge.controller
 
 import com.minos.onlinejudge.domain.User
+import com.minos.onlinejudge.groovy.Standings
 
 class UserController {
 
+  /**
+   * Pagina principal del usuario
+   * 
+   * @param username Nombre del usuario a mostrar
+   * 
+   * @return user Usuario a desplegar
+   */
   def index() {
     
-    if (session.user) {
-      redirect(controller: "contest") // listar los contests
-    } else {
+    [user: User.findByUsername(params.username)]
+  }
+  
+  /**
+   * Despliega la configuracion de perfil del usuario en sesio'n
+   * 
+   * @return user Usuario en sesio'n
+   */
+  def settings() {
+    
+    if (!session.user) {
       redirect(action: "login")
+      return
     }
+    
+    [user: session.user]
   }
   
   /* Crea una nueva cuenta de usuario */
@@ -21,18 +40,19 @@ class UserController {
       params.password = params.password.encodeAsPassword()
       
       def u = new User(params)
+      
       if (!u.save()) {
         return [newUser:u]
       } else {
         session.user = u
-        redirect(action:'login')
+        redirect(uri: "")
       }
     } else if (session.user) {
-      redirect(controller:'user')
+      redirect(uri: "")
     }
   }
   
-  /* Inicia sesion con cuenta de usuario existente */
+  /* Inicia sesio'n con cuenta de usuario existente */
   def login() {
     
     if (request.method == 'POST') {
@@ -41,19 +61,29 @@ class UserController {
       def u = User.findByUsernameAndPassword(params.username, password)
       if (u) {
           session.user = u
-          redirect(controller:'contest')
+          redirect(uri: "")
       } else {
         flash.message = "User not found"
       }
     } else if (session.user) {
-        redirect(controller:'contest')
+        redirect(uri: "")
     }
   }
   
-  /* Cierra session actual */
+  /* Cierra sesio'n actual */
   def logout() {
     
     session.invalidate()
-    redirect(controller:'user')
+    redirect(uri: "")
+  }
+  
+  /**
+   * Metodo llamado cuando es actualizada la informacion del usuario en sesio'n
+   * 
+   * @param todos los parametros de User
+   */
+  def updateSettings() {
+    
+    /* actualizar datos del usuario en sesio'n aqui' */
   }
 }

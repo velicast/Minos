@@ -7,11 +7,13 @@
 
 <html>
   <head>
+    <meta name="layout" content="main">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Standings</title>
   </head>
   <body>
-    <h1>Standing for contest "${contest.title}" goes here...</h1>
+    <h1>${contest.title}</h1>
+    <h2>Standings</h2>
     ${htmlTable}
   </body>
 </html>

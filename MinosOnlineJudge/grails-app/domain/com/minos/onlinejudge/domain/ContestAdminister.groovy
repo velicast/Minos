@@ -2,9 +2,9 @@ package com.minos.onlinejudge.domain
 
 class ContestAdminister {
   User user
-  Contest contest = []
+  Contest contest
 
-  static hasMany = [contest:Contest]
+  static belongsTo = [contest:Contest]
   
   static constraints = {}
 }

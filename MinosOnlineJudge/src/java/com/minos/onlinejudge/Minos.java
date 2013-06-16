@@ -29,7 +29,7 @@ import java.io.InputStream;
  */
 public class Minos {
 
-  public static final String ROOT_DIR       = "/home/arch/Minos/root";  // depende del computador
+  public static final String ROOT_DIR       = "/home/camilourd/NetBeansProjects/Minos/root";  // depende del computador
   public static final String COMPILE_DIR    = ROOT_DIR + "/compile";
   public static final String SANDBOX_DIR    = ROOT_DIR + "/sandbox";
   public static final String CHECKER_DIR    = ROOT_DIR + "/checker";
@@ -105,8 +105,8 @@ public class Minos {
     STATUS_NAME[JUDGING] = "Judging";
     STATUS_NAME[IN_QUEUE] = "In queue";
     
-    LANG_NAME[CPP_LANG] = "GNU C++";
-    LANG_NAME[JAVA_LANG] = "Oracle Java";
+    LANG_NAME[CPP_LANG] = "GNU C++ 4.7";
+    LANG_NAME[JAVA_LANG] = "Java 7";
   }
 
   /* Retorna la unica instancia del juez */

@@ -1,6 +1,6 @@
 package com.minos.onlinejudge.domain
 
-class Clarification {
+class Clarification implements Comparable<Clarification> {
   String question
   String answer 
   Date date
@@ -18,5 +18,11 @@ class Clarification {
 
   static constraints = {
     question(blank:false)
+  }
+  
+  public int compareTo(Clarification c) {
+    
+    if (date.after(c.date)) return -1
+    return 1
   }
 }

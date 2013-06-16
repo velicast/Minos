@@ -20,7 +20,6 @@ class Contest {
   }
   
   static hasMany = [clarifications:Clarification, problems:Problem, admins:ContestAdminister, contestants:Contestant]
-  static belongsTo = [admins:ContestAdminister]
 
   static constraints = {
     title(blank:false)

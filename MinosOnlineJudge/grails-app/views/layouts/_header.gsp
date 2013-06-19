@@ -3,9 +3,7 @@
   and open the template in the editor.
 -->
 <div id="header">
-  <div id="headertitle" align="center">
-    <a class="header-main" href="/MinosOnlineJudge/">Minos Online Judge</a>
-    <br />
+  <div id="loginbox" align="right">
     <g:if test="${session?.user}">
       <label for="showUser">${session?.user?.username} | </label>
       <g:link controller="user" action="logout">Logout</g:link>
@@ -15,6 +13,9 @@
       <label for="showUser"> | </label>
       <g:link controller="user" action="signup">Register</g:link>
     </g:else>
+  </div>
+  <div id="headertitle" align="center">
+    <a class="header-main" href="/MinosOnlineJudge/">Minos Online Judge</a>
   </div>
         
   <!-- Barra de navegación -->

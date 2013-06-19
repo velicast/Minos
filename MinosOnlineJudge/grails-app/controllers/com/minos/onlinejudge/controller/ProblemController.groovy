@@ -14,8 +14,14 @@ class ProblemController {
    * @return problems todo el set de problemas de la pa'gina
    */
   def index() {
+      // Solo usuarios logeados
+    if (session.user == null) {
+      redirect(controller: "user", action: "login")
+      return
+    }
     
     def problems = Problem.list()
+    
     problems.sort { a, b ->
       def da = a.contest.startTime
       def db = b.contest.startTime

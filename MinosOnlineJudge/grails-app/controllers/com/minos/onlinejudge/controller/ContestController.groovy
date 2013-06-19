@@ -49,12 +49,12 @@ class ContestController {
    */
   def problems() {
     
-    Contest contest = Contest.get(params.id)
+    Contest contest = Contest.get(params.contestID)
     if (!checkAccess(contest)) {
       return
     }
     
-    [problems: contest.problems.sort(), contest: contest]
+    [problemList: contest.problems.sort(), contest: contest]
   }
   
   /**
@@ -68,7 +68,7 @@ class ContestController {
    */
   def submit() {
     
-    Contest contest = Contest.get(params.id)
+    Contest contest = Contest.get(params.contestID)
     if (!checkAccess(contest)) {
       return
     }
@@ -87,7 +87,7 @@ class ContestController {
    */
   def submissions() {
     
-    Contest contest = Contest.get(params.id)
+    Contest contest = Contest.get(params.contestID)
     if (!checkAccess(contest)) {
       return
     }
@@ -108,7 +108,7 @@ class ContestController {
    */
   def standings() {
     
-    Contest contest = Contest.get(params.id)
+    Contest contest = Contest.get(params.contestID)
     if (!checkAccess(contest)) {
       return
     }
@@ -158,7 +158,7 @@ class ContestController {
    */
   def clarifications() {
     
-    Contest contest = Contest.get(params.id)
+    Contest contest = Contest.get(params.contestID)
     if (!checkAccess(contest)) {
       return
     }
@@ -175,7 +175,7 @@ class ContestController {
    */
   def customtest() {
     
-    Contest contest = Contest.get(params.id)
+    Contest contest = Contest.get(params.contestID)
     if (!checkAccess(contest)) {
       return
     }

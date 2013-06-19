@@ -44,7 +44,7 @@
                     <td>Registered</td>
                   </g:elseif>
                   <g:else>
-                    <td><g:link controller="problem">Enter</g:link></td>
+                    <td><g:link action="problems" params="[contestID:actualContest.get(0).id]">Enter</g:link></td>
                   </g:else>
                 </g:if>
               </tr>

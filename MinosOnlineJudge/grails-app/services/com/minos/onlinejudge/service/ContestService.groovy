@@ -5,6 +5,6 @@ import com.minos.onlinejudge.domain.Contestant
 class ContestService {
 
   def isRegistered(contest, user) {
-    Contestant.findByUserAndContest(user, contest) != null
+    return Contestant.findByUserAndContest(user, contest) != null
   }
 }

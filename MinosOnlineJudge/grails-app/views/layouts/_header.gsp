@@ -16,3 +16,10 @@
           <g:link controller="user" action="signup">Register</g:link>
         </g:else>
 </div>
+
+<!-- Barra de navegación -->
+<div id="navbar">
+  <li><a href="#" disabled>Home</a></li>
+  <li><a href="#">Contest</a></li>
+  <li><a href="#">Help</a></li>
+</div>

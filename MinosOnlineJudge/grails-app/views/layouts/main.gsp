@@ -20,10 +20,7 @@
 		<r:layoutResources />
 	</head>
 	<body>
-                <g:render template="/layouts/header" /> 
-                <g:if test="${contest}">
-                  <g:render template="/layouts/contest" /> 
-                </g:if>
+                <g:render template="/layouts/header" />
 		<g:layoutBody/>
                 <g:render template="/layouts/footer"/>
 		<div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>

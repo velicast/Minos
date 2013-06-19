@@ -12,6 +12,8 @@
     <title>Standings</title>
   </head>
   <body>
+    <g:render template="/layouts/contest" />
+    
     <h1>${contest.title}</h1>
     <h2>Standings</h2>
     ${htmlTable}

@@ -51,7 +51,37 @@ root {
     background: -webkit-linear-gradient(top,  #9b964f 0%,#636631 23%,#909147 78%,#b2b584 100%);
     background: -o-linear-gradient(top,  #9b964f 0%,#636631 23%,#909147 78%,#b2b584 100%);
     background: -ms-linear-gradient(top,  #9b964f 0%,#636631 23%,#909147 78%,#b2b584 100%);
-    background: linear-gradient(to bottom,  #9b964f 0%,#636631 23%,#909147 78%,#b2b584 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9b964f', endColorstr='#b2b584',GradientType=0 );
     
+}
+
+#contestbar {
+    margin: 0px 30px 0px 30px;
+    font-weight: bold;
+}
+
+#contestbar ul {
+    list-style-type: none;
+    text-align: center;
+}
+
+#contestbar li {
+    display: inline;
+    text-align: center;
+    font-size: 1em;
+}
+
+#contestbar li a {
+    color: black;
+    margin-right: 10px;
+    padding: 3px 5px 3px 5px;
+    font-style: normal;
+    text-decoration: none;
+}
+
+#contestbar li a:hover {
+    background: #51a055;
+    padding: 3px 5px 3px 5px;
+    border-radius: 2px;
+    color: white;
 }

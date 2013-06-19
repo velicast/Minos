@@ -13,6 +13,7 @@
     <title>${contest.title} Submission's</title>
   </head>
   <body>
+    <g:render template="/layouts/contest" />
     <h1>${contest.title} Submission's</h1>
     <table border="1">
       <thead>

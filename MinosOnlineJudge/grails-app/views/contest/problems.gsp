@@ -12,6 +12,8 @@
     <title>Problems - Minos</title>
   </head>
   <body>
+    <g:render template="/layouts/contest" />
+    
     <div id="list-problems" class="content scaffold-list" role="main">
       <h1>Problem List</h1>
       <g:if test="${flash.message}">
@@ -33,7 +35,7 @@
               <td>${actualProblem.id}</td>
               <td>${actualProblem.title}</td>
               <td>${actualProblem.timeLimit / 1000} seconds</td>
-              <td>${actualProblem.memoryLimit} MB</td>
+              <td>${actualProblem.memoryLimit / 1024} MB</td>
             </tr>
           </g:each>
         </tbody>

@@ -163,9 +163,9 @@ class ContestController {
       return
     }
     
-    Clarification clarifications = Contest.clarifications.sort()
+    def clarifications = contest.clarifications.sort()
     
-    [problems: contest.problems.sort(), clarifications: clarifications]
+    [problems: contest.problems.sort(), clarifications: clarifications, contest: contest]
   }
   
   /**

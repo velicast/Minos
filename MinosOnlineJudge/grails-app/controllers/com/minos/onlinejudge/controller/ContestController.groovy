@@ -195,10 +195,13 @@ class ContestController {
       redirect(action: "index", params: params)
   }
   
-  def unregister(contest, user) {
+  def unregister() {
+    Contest contest = Contest.get(params.contestID)
+    Contestant contestant = Contestant.findByUserAndContest(session.user, contest)
     
-    Contestant contestant = Contestant.findByUser(user)
-    contestant.delete(true)
+    contestant?.delete()
+    
+    redirect(action: "index", params: params)
   }
   
   /**
@@ -215,7 +218,7 @@ class ContestController {
       return false
     }
       // No se encuentra registrado
-    if (!contestService.isRegistered(contest, session.user)) {
+    if (!contestService.isRegistered(contest, session.user) && contest.status == Contest.ST_RUNNING) {
       redirect(controller: "contest")
       return false
     }

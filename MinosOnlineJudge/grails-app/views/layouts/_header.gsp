@@ -15,11 +15,11 @@
           <label for="showUser"> | </label>
           <g:link controller="user" action="signup">Register</g:link>
         </g:else>
-</div>
-
-<!-- Barra de navegación -->
+        <!-- Barra de navegación -->
 <div id="navbar">
-  <li><a href="#" disabled>Home</a></li>
-  <li><a href="#">Contest</a></li>
+  <li><g:link controller="user" action="startpage">Home</g:link></li>
+  <li><g:link controller="contest" action="index">Contest</g:link></li>
   <li><a href="#">Help</a></li>
 </div>
+</div>
+

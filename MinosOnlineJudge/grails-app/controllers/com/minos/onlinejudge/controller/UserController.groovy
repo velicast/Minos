@@ -86,4 +86,8 @@ class UserController {
     
     /* actualizar datos del usuario en sesio'n aqui' */
   }
+  
+  def startpage() {
+      redirect(uri: "")
+  }
 }

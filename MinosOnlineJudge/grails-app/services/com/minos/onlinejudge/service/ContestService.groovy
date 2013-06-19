@@ -1,10 +1,10 @@
 package com.minos.onlinejudge.service
 
-import com.minos.onlinejudge.domain.Contest
+import com.minos.onlinejudge.domain.Contestant
 
 class ContestService {
 
-  def isRegistered(Contest contest, user) {
-    contest.findByUserAndContest(user, contest) != null
+  def isRegistered(contest, user) {
+    Contestant.findByUserAndContest(user, contest) != null
   }
 }

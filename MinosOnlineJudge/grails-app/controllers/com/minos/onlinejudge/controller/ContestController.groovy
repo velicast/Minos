@@ -31,29 +31,12 @@ class ContestController {
     def resultList = []
     
     for (currContest in contests) {
-      def registered = isRegistered(currContest, session.user)
+      def registered = contestService.isRegistered(currContest, session.user)
       resultList.add([currContest, registered])
     }
     
     resultList.sort { it[0].startTime }
     [contestList: resultList, contestTotal: Contest.count()]
-  }
-  
- /**
-   * Verifica que el usuario esté registrado en una competencia
-   *
-   * @param cst contest to verify
-   * @param usr user to verify
-   * 
-   * @return true if the user are registered in the constest cst
-   * @return false if the user aren't registered in the constest cst
-   */
-  def isRegistered(Contest cst, User usr) {
-    if(Contestant.findByUserAndContest(usr, cst)) {
-      return true
-    } else {
-      return false
-    }
   }
   
   /**

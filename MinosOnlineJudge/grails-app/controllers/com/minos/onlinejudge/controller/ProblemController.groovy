@@ -15,13 +15,13 @@ class ProblemController {
    */
   def index() {
     
-    Problem problems = Problem.list()
-    problems.sort = { a, b ->
-      da = a.contest.startDate
-      db = b.contest.startDate
+    def problems = Problem.list()
+    problems.sort { a, b ->
+      def da = a.contest.startTime
+      def db = b.contest.startTime
       
-      if (da.after(db.startDate)) return -1
-      if (da.before(db.startDate)) return 1
+      if (da.after(db)) return -1
+      if (da.before(db)) return 1
       if (a.alphabet > b.alphabet) return -1
       return 1
     }

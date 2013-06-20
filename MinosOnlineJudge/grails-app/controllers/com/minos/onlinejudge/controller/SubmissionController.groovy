@@ -21,7 +21,7 @@ class SubmissionController {
     def sourceFile = request.getFile("source")
     def fileName = sourceFile.getOriginalFilename()
     
-    Problem problem = Problem.get(params.id)
+    Problem problem = Problem.get(params.problemID)
     Contest contest = problem.contest
     Contestant contestant = Contestant.findByUserAndContest(session.user, contest)
     
@@ -40,8 +40,8 @@ class SubmissionController {
     
       // JUZGAR!!!
     Minos.judge(submission)
- 
-    redirect(controller: "contest", action:"submissions", id : contest.id)
+    
+    redirect(controller: "contest", action:"submissions", params: [contestID : contest.id])
   }
   
   /* Tranferir archivo a carpeta de envio */

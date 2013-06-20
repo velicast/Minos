@@ -51,7 +51,7 @@ class ProblemController {
       return
     }
       // No puede acceder, usuario no registrado
-    Problem problem = Problem.get(params.id)
+    Problem problem = Problem.get(params.problemID)
     if (!contestService.isRegistered(problem?.contest, session.user)) {
       redirect(controller: "contest")
       return

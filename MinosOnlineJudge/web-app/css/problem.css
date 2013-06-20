@@ -1,0 +1,30 @@
+/* 
+    Document   : problem
+    Created on : 19/06/2013, 10:20:59 AM
+    Author     : camilourd
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+
+#showproblem {
+    border: .2em solid #48802C;
+    width: 70%;
+    margin: 30px 5px 5px 5px;
+}
+
+#showsubmit {
+    border: .2em solid #48802C;
+    width: 28%;
+    margin: 30px 5px 5px 5px;
+}
+
+.submit {
+    border: .2em solid #48802C;
+    margin: 30px 30px 5px 30px;
+    padding: 10px;
+    width: 500px;
+}

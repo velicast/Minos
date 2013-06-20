@@ -15,7 +15,7 @@
     </g:else>
   </div>
   <div id="headertitle" align="center">
-    <a class="header-main" href="/MinosOnlineJudge/">Minos Online Judge</a>
+    <label for="titleaplication">Minos Online Judge</label>
   </div>
         
   <!-- Barra de navegación -->

@@ -73,7 +73,7 @@ class ContestController {
       return
     }
     
-    [problems: contest.problems.sort(), contest: contest]
+    [problemList: contest.problems.sort(), contest: contest]
   }
   
   /**

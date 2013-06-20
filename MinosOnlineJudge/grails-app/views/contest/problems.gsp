@@ -33,7 +33,7 @@
           <g:each in="${problemList}" status="i" var="actualProblem">
             <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
               <td>${actualProblem.id}</td>
-              <td>${actualProblem.title}</td>
+              <td><g:link controller="problem" action="show" params="[problemID:actualProblem.id]">${actualProblem.title}</g:link></td>
               <td>${actualProblem.timeLimit / 1000} seconds</td>
               <td>${actualProblem.memoryLimit / 1024} MB</td>
             </tr>

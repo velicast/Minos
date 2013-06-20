@@ -21,20 +21,34 @@
     </div>
     
     <div id="showsubmit">
-      <p>Problem: ${problem.alphabet}. ${problem.title}</p>
       <g:uploadForm controller="submission" action="submit" name="submissionForm" onsubmit="return checkTargetFile()">
-        <a>Language:</a>
-        <select name="language">
-          <option value=${Minos.CPP_LANG}>${Minos.LANG_NAME[Minos.CPP_LANG]}</option>
-          <option value=${Minos.JAVA_LANG}>${Minos.LANG_NAME[Minos.JAVA_LANG]}</option>
-        </select>
-        <br>
-        <a>Source:</a>
-        <input type="file" name="source" size="10"/>
-        <br>
-        <g:hiddenField name="submitDate"/>
-        <g:hiddenField name="problemID" value="${problem.id}"/>
-        <g:submitButton name="submit" value="Submit" />
+        <table>
+          <tr>
+            <td><label for="comment">Problem:</label></td>
+            <td><label for="comment">${problem.alphabet}. ${problem.title}</label></td>
+          </tr>
+          <tr>
+            <td><label for="comment">Language:</label></td>
+            <td>
+              <select name="language">
+                <option value=${Minos.CPP_LANG}>${Minos.LANG_NAME[Minos.CPP_LANG]}</option>
+                <option value=${Minos.JAVA_LANG}>${Minos.LANG_NAME[Minos.JAVA_LANG]}</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td><label for="comment">Source:</label></td>
+            <td><input type="file" name="source" size="10"/></td>
+          </tr>
+          <tr>
+            <td><g:hiddenField name="submitDate"/></td>
+            <td><g:hiddenField name="problemID" value="${problem.id}"/></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><g:submitButton name="submit" value="Submit" /></td>
+          </tr>
+        </table>
       </g:uploadForm>
     </div>
   </body>

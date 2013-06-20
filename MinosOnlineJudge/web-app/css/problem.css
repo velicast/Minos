@@ -11,15 +11,45 @@ root {
 }
 
 #showproblem {
-    border: .2em solid #48802C;
-    width: 70%;
+    border: .1em solid #C0C0C0;
+    width: 65%;
     margin: 30px 5px 5px 5px;
+    float: left;
+    display: inline;
+    padding: 5px 10px 5px 10px;
 }
 
 #showsubmit {
-    border: .2em solid #48802C;
-    width: 28%;
+    border: .1em solid #C0C0C0;
+    width: 29.3%;
     margin: 30px 5px 5px 5px;
+    float: right;
+    display: inline;
+    padding: 5px 10px 5px 10px;
+    border-radius: 5px;
+}
+
+#showsubmit label[for=comment] {
+    font-size: 1em;
+    font-weight: bold;
+}
+
+#showsubmit select {
+    padding: 2px 5px 2px 5px;
+    width: 225px;
+    background-color: #DAF6B2;
+}
+
+#showsubmit input[type=submit] {
+    padding: 3px 10px 3px 10px;
+    width: 150px;
+    background: #E5E5E5;
+    border-radius: 2px;
+}
+
+#showsubmit input[type=file] {
+    background-color: #DAF6B2;
+    width: 210px;
 }
 
 .submit {
@@ -27,6 +57,7 @@ root {
     margin: 30px 30px 5px 30px;
     padding: 10px;
     width: 480px;
+    border-radius: 5px;
 }
 
 .submit label[for=comment] {
@@ -48,5 +79,5 @@ root {
     padding: 3px 10px 3px 10px;
     width: 150px;
     background: #E5E5E5;
-    
+    border-radius: 2px;
 }

@@ -399,9 +399,10 @@ input:invalid:focus, select:invalid:focus, textarea:invalid:focus {
 /* TABLES */
 
 table {
+        margin-left: 18px;
 	border-top: 1px solid #DFDFDF;
 	border-collapse: collapse;
-	width: 100%;
+	width: 97%;
 	margin-bottom: 1em;
 }
 

@@ -3,6 +3,7 @@ package com.minos.onlinejudge.controller
 import com.minos.onlinejudge.domain.Problem
 import com.minos.onlinejudge.domain.Contest
 import com.minos.onlinejudge.domain.Contestant
+import com.minos.onlinejudge.Minos
 
 class ProblemController {
 
@@ -65,6 +66,13 @@ class ProblemController {
       return
     }
     
-    [problem: problem, contest: problem.contest]
+    def htmlcode = ""
+    def dir = Minos.ROOT_DIR + "/problem/problem" + problem.id + "/statement/index.html"
+    
+    def file= new File(dir)
+    htmlcode += file.getText()
+    
+    
+    [problem: problem, contest: problem.contest, htmlProblem: htmlcode]
   }
 }

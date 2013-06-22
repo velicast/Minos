@@ -18,7 +18,7 @@
     <g:render template="/layouts/contest" />
     
     <div id="showproblem">
-      <h1>Show description problem here!</h1>
+      ${htmlProblem}
     </div>
     
     <div id="showsubmit">

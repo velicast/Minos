@@ -44,12 +44,21 @@ root {
     text-align: justify;
 }
 
+#showproblem li {
+    margin-left: 50px;
+}
+
 #showproblem table {
     border: 0.1em solid #C0C0C0;
 }
 
 #showproblem table p {
-    margin: 5px;
+    font-size: 0.9em;
+    margin: 0px;
+}
+
+#showproblem table td {
+    padding: 2px 10px 2px 10px;
 }
 
 #showproblem table tr:nth-child(odd) {

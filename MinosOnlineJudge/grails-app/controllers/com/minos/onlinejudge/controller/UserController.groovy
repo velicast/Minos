@@ -36,7 +36,7 @@ class UserController {
   def signup() {
     
     if (request.method == 'POST') {
-      params.username = params.username.toLowerCase()
+      params.dbUsername = params.username.toLowerCase()
       params.password = params.password.encodeAsPassword()
       
       def u = new User(params)
@@ -57,8 +57,9 @@ class UserController {
     
     if (request.method == 'POST') {
       def password = params.password.encodeAsPassword()
+      def dbUsername = params.username.toLowerCase()
       
-      def u = User.findByUsernameAndPassword(params.username, password)
+      def u = User.findByDbUsernameAndPassword(dbUsername, password)
       if (u) {
           session.user = u
           redirect(uri: "")

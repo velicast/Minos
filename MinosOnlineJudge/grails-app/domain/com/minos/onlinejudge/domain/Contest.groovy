@@ -2,9 +2,9 @@ package com.minos.onlinejudge.domain
 
 class Contest {
   
-  static final ST_CREATED  = 0
-  static final ST_RUNNING  = 1
-  static final ST_FINISHED = 2
+  public static final int ST_CREATED  = 0
+  public static final int ST_RUNNING  = 1
+  public static final int ST_FINISHED = 2
   
   Integer status
   String title

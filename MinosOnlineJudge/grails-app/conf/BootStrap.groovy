@@ -1,3 +1,4 @@
+import com.minos.onlinejudge.ContestTimeTracer
 import com.minos.onlinejudge.Minos
 import com.minos.onlinejudge.domain.User
 import com.minos.onlinejudge.domain.Contest
@@ -9,14 +10,17 @@ import com.minos.onlinejudge.groovy.Standings
 class BootStrap {
 
   def submissionService
+  def contestService
   
   def init = { servletContext ->
     
     Minos.setNotificationTarget(submissionService)
+    ContestTimeTracer.setNotificationTarget(contestService)
     
     User admin = new User()
     admin.role = "admin"
     admin.username = "admin"
+    admin.dbUsername = "admin"
     admin.password = ("admin").encodeAsPassword()
     admin.email = "admin@minos.com"
     admin.institution = "Universidad Nacional de Colombia"
@@ -28,15 +32,15 @@ class BootStrap {
     Contest contest = new Contest()
     contest.title = "Test Contest #1"
     contest.status = Contest.ST_RUNNING
-    contest.startTime = new Date(113, 5, 12,  8, 30, 0)
-    contest.endTime   = new Date(113, 5, 12, 11, 30, 0)
+    contest.startTime = new Date(113, 5, 22,  7, 30, 0)
+    contest.endTime   = new Date(113, 5, 22, 9, 30, 0)
     contest.save(true)
     
     Contest contest1 = new Contest()
     contest1.title = "Test Contest #2"
     contest1.status = Contest.ST_CREATED
-    contest1.startTime = new Date(113, 5, 13, 20, 30, 0)
-    contest1.endTime   = new Date(113, 5, 13, 22, 30, 0)
+    contest1.startTime = new Date(113, 5, 22, 8, 46, 0)
+    contest1.endTime   = new Date(113, 5, 22, 9, 05, 0)
     contest1.save(true)
     
     Contest contest2 = new Contest()
@@ -111,6 +115,10 @@ class BootStrap {
     contest.addToProblems(p3)
     
     contest.save(true)
+    
+    ContestTimeTracer.trace(contest)
+    ContestTimeTracer.trace(contest1)
+    ContestTimeTracer.trace(contest2)
     
     java.io.File f = new java.io.File("tmpdir")
     f.mkdir()

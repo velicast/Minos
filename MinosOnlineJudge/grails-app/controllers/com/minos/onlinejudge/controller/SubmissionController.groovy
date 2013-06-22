@@ -51,6 +51,12 @@ class SubmissionController {
     if (!dstPath.exists()) {
       dstPath.mkdir()
     }
-    sourceFile.transferTo(new File(submission.rootPath + "/" + submission.fileName))
+    //try {
+      sourceFile.transferTo(new File(submission.rootPath + "/" + submission.fileName))
+    //} catch (Exception ex) {
+        // LOG error here!
+     // submission.status = Minos.INTERNAL_ERROR
+     // submission.save(true)
+   // }
   }
 }

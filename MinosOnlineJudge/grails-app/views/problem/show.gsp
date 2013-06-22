@@ -4,6 +4,7 @@
 -->
 
 <%@ page import="com.minos.onlinejudge.Minos" %>
+<%@ page import="com.minos.onlinejudge.domain.Contest" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 
 <html>
@@ -21,35 +22,40 @@
     </div>
     
     <div id="showsubmit">
-      <g:uploadForm controller="submission" action="submit" name="submissionForm" onsubmit="return checkTargetFile()">
-        <table>
-          <tr>
-            <td><label for="comment">Problem:</label></td>
-            <td><label for="comment">${problem.alphabet}. ${problem.title}</label></td>
-          </tr>
-          <tr>
-            <td><label for="comment">Language:</label></td>
-            <td>
-              <select name="language">
-                <option value=${Minos.CPP_LANG}>${Minos.LANG_NAME[Minos.CPP_LANG]}</option>
-                <option value=${Minos.JAVA_LANG}>${Minos.LANG_NAME[Minos.JAVA_LANG]}</option>
-              </select>
-            </td>
-          </tr>
-          <tr>
-            <td><label for="comment">Source:</label></td>
-            <td><input type="file" name="source" size="10"/></td>
-          </tr>
-          <tr>
-            <td><g:hiddenField name="submitDate"/></td>
-            <td><g:hiddenField name="problemID" value="${problem.id}"/></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td><g:submitButton name="submit" value="Submit" /></td>
-          </tr>
-        </table>
-      </g:uploadForm>
+      <g:if test="${contest.status != Contest.ST_FINISHED}">
+        <g:uploadForm controller="submission" action="submit" name="submissionForm" onsubmit="return checkTargetFile()">
+          <table>
+            <tr>
+              <td><label for="comment">Problem:</label></td>
+              <td><label for="comment">${problem.alphabet}. ${problem.title}</label></td>
+            </tr>
+            <tr>
+              <td><label for="comment">Language:</label></td>
+              <td>
+                <select name="language">
+                  <option value=${Minos.CPP_LANG}>${Minos.LANG_NAME[Minos.CPP_LANG]}</option>
+                  <option value=${Minos.JAVA_LANG}>${Minos.LANG_NAME[Minos.JAVA_LANG]}</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td><label for="comment">Source:</label></td>
+              <td><input type="file" name="source" size="10"/></td>
+            </tr>
+            <tr>
+              <td><g:hiddenField name="submitDate"/></td>
+              <td><g:hiddenField name="problemID" value="${problem.id}"/></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><g:submitButton name="submit" value="Submit" /></td>
+            </tr>
+          </table>
+        </g:uploadForm>
+      </g:if>
+      <g:else>
+        <label for="comment">The contest has finished</label>
+      </g:else>
     </div>
   </body>
 </html>

@@ -13,9 +13,7 @@
   </head>
   <body>
     <g:render template="/layouts/contest" />
-    
-    <h1>${contest.title}</h1>
-    <h2>Standings</h2>
+    <h1>Standings</h1>
     ${htmlTable}
   </body>
 </html>

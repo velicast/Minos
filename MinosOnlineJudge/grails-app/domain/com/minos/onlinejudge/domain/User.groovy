@@ -6,6 +6,7 @@ class User {
   static final ROLE_ADMIN = "admin"
   
   String username
+  String dbUsername
 	String password
   String email
   String role
@@ -14,6 +15,7 @@ class User {
   public User() {
     
     username = ""
+    dbUsername = ""
     password = ""
     email = ""
     role = ROLE_USER
@@ -23,10 +25,11 @@ class User {
   static hasMany = [clarifications: Clarification]
 
   static constraints = {
-    username(blank: false, unique: true, matches: /[A-Za-z_0-9]*/)
+    dbUsername(blank: false, unique: true, matches: /[A-Za-z_0-9]*/)
 		password(blank: false)
     email(blank: false, email: true, unique: true)
     role(inList:[ROLE_ADMIN,ROLE_USER])
-    institution()
+    institution(nullable: true)
+    institution(blank: false)
   }
 }

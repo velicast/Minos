@@ -35,7 +35,10 @@ class ContestController {
       resultList.add([currContest, registered])
     }
     
-    resultList.sort { it[0].startTime }
+    resultList.sort { a, b ->
+      if (a[0].startTime.after(b[0].startTime)) return -1
+      return 1
+    }
     [contestList: resultList, contestTotal: Contest.count()]
   }
   
@@ -93,7 +96,10 @@ class ContestController {
     }
     
     Contestant contestant = Contestant.findByUserAndContest(session.user, contest)
-    def submissions = contestant.submissions.sort().reverse()
+    def submissions
+    if (contestant) {
+      submissions = contestant.submissions.sort().reverse()
+    }
     
     [submissions: submissions, contest: contest]
   }
@@ -113,10 +119,6 @@ class ContestController {
       return
     }
     
-    Standings standings = new Standings(contest)
-    int cols = standings.problemIdentifiers.length
-    int rows = standings.positions.length
-    
       // codigo html de la tabla generada
     def table = "<table border=1>\n"
     table += "<tr>\n"
@@ -124,25 +126,34 @@ class ContestController {
     table += "<th>Contestant</th>\n"
     table += "<th>Solved</th>\n"
     table += "<th>Penalty</th>\n"
-    for (int i = 0; i < cols; ++i) {
-      table += "<th>" + standings.problemIdentifiers[i] + "</th>\n"
+    
+    if (contest.contestants.size() == 0) {
+      table += "</table>" 
+    } else {
+        Standings standings = new Standings(contest)
+        int cols = standings.problemIdentifiers.length
+        int rows = standings.positions.length
+    
+        for (int i = 0; i < cols; ++i) {
+        table += "<th>" + standings.problemIdentifiers[i] + "</th>\n"
+        }
+        table += "</tr>\n"
+        for (int i = 0; i < rows; ++i) {
+        def r = standings.positions[i]
+        table += "<tr>\n"
+        table += "<td>" + r.position + "</td>\n"
+        table += "<td>" + r.target.user.username + "</td>\n"
+        table += "<td>" + r.solvedProblems + "</td>\n"
+        table += "<td>" + r.penaltyTime + "</td>\n"
+        for (int j = 0; j < cols; ++j) {
+            int time = r.solvedTime[j]
+            int att = r.attempts[j]
+            table += "<td>" + (att == 0 ? "--" : att) + "/" + (time == 0 ? "--" : time) + "</td>\n"
+        }
+        table += "</tr>\n"
+        }
+        table += "</table>"
     }
-    table += "</tr>\n"
-    for (int i = 0; i < rows; ++i) {
-      def r = standings.positions[i]
-      table += "<tr>\n"
-      table += "<td>" + r.position + "</td>\n"
-      table += "<td>" + r.target.user.username + "</td>\n"
-      table += "<td>" + r.solvedProblems + "</td>\n"
-      table += "<td>" + r.penaltyTime + "</td>\n"
-      for (int j = 0; j < cols; ++j) {
-        int time = r.solvedTime[j]
-        int att = r.attempts[j]
-        table += "<td>" + (att == 0 ? "--" : att) + "/" + (time == 0 ? "--" : time) + "</td>\n"
-      }
-      table += "</tr>\n"
-    }
-    table += "</table>"
 
     [htmlTable: table, contest: contest]
   }
@@ -165,7 +176,7 @@ class ContestController {
     
     def clarifications = contest.clarifications.sort()
     
-    [problems: contest.problems.sort(), clarifications: clarifications, contest: contest]
+    [problems: contest.problems.sort(), clarificationList: clarifications, contest: contest]
   }
   
   /**
@@ -217,8 +228,13 @@ class ContestController {
       redirect(controller: "user", action: "login")
       return false
     }
+    
+    if (contest.status == Contest.ST_CREATED) {
+      redirect(controller: "contest")
+      return false
+    }
       // No se encuentra registrado
-    if (!contestService.isRegistered(contest, session.user) && contest.status == Contest.ST_RUNNING) {
+    if (contest.status == Contest.ST_RUNNING && !contestService.isRegistered(contest, session.user)) {
       redirect(controller: "contest")
       return false
     }

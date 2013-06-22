@@ -71,10 +71,9 @@ class ProblemController {
     
     def file= new File(dir)
     htmlcode += "<h1>" + problem.alphabet + ". " + problem.title + "</h1>"
-    htmlcode += "<h3>time limit: " + (problem.timeLimit/1000) + " seconds</h3>"
-    htmlcode += "<h3>memory limit: " + (problem.memoryLimit/1024) + " megabytes</h3>"
+    htmlcode += "<h3>time limit per test: " + (problem.timeLimit/1000) + " seconds</h3>"
+    htmlcode += "<h3>memory limit per test: " + (problem.memoryLimit/1024) + " megabytes</h3>"
     htmlcode += file.getText()
-    
     
     [problem: problem, contest: problem.contest, htmlProblem: htmlcode]
   }

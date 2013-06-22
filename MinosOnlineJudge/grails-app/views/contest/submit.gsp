@@ -27,7 +27,7 @@
                 <td>
                   <select name="problemID">
                     <g:each in="${problemList}" status="i" var="actualProblem">
-                      <option value=${actualProblem.id}>${actualProblem.title}</option>
+                      <option value=${actualProblem.id}>${actualProblem.alphabet}. ${actualProblem.title}</option>
                     </g:each>
                   </select>
                 </td>

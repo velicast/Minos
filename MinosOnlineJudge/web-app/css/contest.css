@@ -18,28 +18,28 @@ root {
 }
 
 #showproblem h1 {
-    font-size: 2em;
+    font-size: 1.9em;
     font-weight: bold;
     text-align: center;
     color: #48802c;
 }
 
 #showproblem h2 {
-    font-size: 1.3em;
+    font-size: 1.2em;
     font-weight: bold;
     margin: 20px 10px 10px 10px;
     color: #48802c;
 }
 
 #showproblem h3 {
-    font-size: 1em;
+    font-size: 0.9em;
     font-weight: bold;
     text-align: center;
     color: #48802c;
 }
 
 #showproblem p {
-    font-size: 1em;
+    font-size: 0.9em;
     margin: 10px 0px 10px 0px;
     text-align: justify;
 }

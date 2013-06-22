@@ -7,4 +7,9 @@ class ClarificationController {
   def index() {
     
   }
+  
+  def submit() {
+      
+      redirect(controller: "contest", action:"clarifications", params: [contestID : contest.id])
+  }
 }

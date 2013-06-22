@@ -12,10 +12,53 @@ root {
 
 #showproblem {
     width: 65%;
-    margin: 30px 5px 5px 5px;
     float: left;
     display: inline;
-    padding: 5px 10px 5px 10px;
+    padding: 0px 10px 5px 20px;
+}
+
+#showproblem h1 {
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+    color: #48802c;
+}
+
+#showproblem h2 {
+    font-size: 1.3em;
+    font-weight: bold;
+    margin: 20px 10px 10px 10px;
+    color: #48802c;
+}
+
+#showproblem h3 {
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+    color: #48802c;
+}
+
+#showproblem p {
+    font-size: 1em;
+    margin: 10px 0px 10px 0px;
+    text-align: justify;
+}
+
+#showproblem table {
+    border: 0.1em solid #C0C0C0;
+}
+
+#showproblem table p {
+    margin: 5px;
+}
+
+#showproblem table tr:nth-child(odd) {
+    background: #BAD1EB;
+    font-weight: bold;
+}
+
+#showproblem table tr:nth-child(even) {
+    background: #DAF6B2;
 }
 
 #showsubmit {

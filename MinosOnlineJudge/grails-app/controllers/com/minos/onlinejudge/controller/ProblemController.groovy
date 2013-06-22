@@ -67,9 +67,12 @@ class ProblemController {
     }
     
     def htmlcode = ""
-    def dir = Minos.ROOT_DIR + "/problem/problem" + problem.id + "/statement/index.html"
+    def dir = Minos.PROBLEM_DIR + "/problem" + problem.id + "/statement/index.html"
     
     def file= new File(dir)
+    htmlcode += "<h1>" + problem.alphabet + ". " + problem.title + "</h1>"
+    htmlcode += "<h3>time limit: " + (problem.timeLimit/1000) + " seconds</h3>"
+    htmlcode += "<h3>memory limit: " + (problem.memoryLimit/1024) + " megabytes</h3>"
     htmlcode += file.getText()
     
     

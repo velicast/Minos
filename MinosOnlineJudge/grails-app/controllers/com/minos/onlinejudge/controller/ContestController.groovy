@@ -139,18 +139,18 @@ class ContestController {
         }
         table += "</tr>\n"
         for (int i = 0; i < rows; ++i) {
-        def r = standings.positions[i]
-        table += "<tr>\n"
-        table += "<td>" + r.position + "</td>\n"
-        table += "<td>" + r.target.user.username + "</td>\n"
-        table += "<td>" + r.solvedProblems + "</td>\n"
-        table += "<td>" + r.penaltyTime + "</td>\n"
-        for (int j = 0; j < cols; ++j) {
+          def r = standings.positions[i]
+          table += "<tr>\n"
+          table += "<td>" + r.position + "</td>\n"
+          table += "<td>" + r.target.user.username + "</td>\n"
+          table += "<td>" + r.solvedProblems + "</td>\n"
+          table += "<td>" + r.penaltyTime + "</td>\n"
+          for (int j = 0; j < cols; ++j) {
             int time = r.solvedTime[j]
             int att = r.attempts[j]
             table += "<td>" + (att == 0 ? "--" : att) + "/" + (time == 0 ? "--" : time) + "</td>\n"
-        }
-        table += "</tr>\n"
+          }
+          table += "</tr>\n"
         }
         table += "</table>"
     }

@@ -243,7 +243,7 @@ class ContestController {
   
   def edit() {
         // So'lo usuarios logeados
-    if (session.user == null) {
+    if (session.user == null || session.user.role != "admin") {
       redirect(controller: "user", action: "login")
       return
     }
@@ -255,5 +255,15 @@ class ContestController {
       return 1
     }
     [contestList: contests, contestTotal: Contest.count()]
+  }
+  
+  def create() {
+          // So'lo usuarios logeados
+    if (session.user == null || session.user.role != "admin") {
+      redirect(controller: "user", action: "login")
+      return
+    }
+    
+    
   }
 }

@@ -13,6 +13,8 @@
     <title>Edit contest</title>
   </head>
   <body>
+    <g:render template="/layouts/editcontest" />
+    
     <div id="list-contest" class="content scaffold-list" role="main">
       <h1>Active Contest</h1>
       <g:if test="${flash.message}">

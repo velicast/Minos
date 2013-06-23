@@ -33,14 +33,14 @@ class BootStrap {
     contest.title = "Test Contest #1"
     contest.status = Contest.ST_RUNNING
     contest.startTime = new Date(113, 5, 22,  7, 30, 0)
-    contest.endTime   = new Date(113, 5, 22, 19, 30, 0)
+    contest.endTime   = new Date(113, 5, 23, 19, 30, 0)
     contest.save(true)
     
     Contest contest1 = new Contest()
     contest1.title = "Test Contest #2"
     contest1.status = Contest.ST_CREATED
-    contest1.startTime = new Date(113, 5, 22, 8, 46, 0)
-    contest1.endTime   = new Date(113, 5, 22, 9, 05, 0)
+    contest1.startTime = new Date(113, 5, 25, 8, 46, 0)
+    contest1.endTime   = new Date(113, 5, 25, 9, 05, 0)
     contest1.save(true)
     
     Contest contest2 = new Contest()

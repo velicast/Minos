@@ -240,4 +240,20 @@ class ContestController {
     }
     return true
   }
+  
+  def edit() {
+        // So'lo usuarios logeados
+    if (session.user == null) {
+      redirect(controller: "user", action: "login")
+      return
+    }
+    
+    def contests = Contest.list()
+    
+    contests.sort { a, b ->
+      if (a.startTime.after(b.startTime)) return -1
+      return 1
+    }
+    [contestList: contests, contestTotal: Contest.count()]
+  }
 }

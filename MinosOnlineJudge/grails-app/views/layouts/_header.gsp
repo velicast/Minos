@@ -22,6 +22,9 @@
   <div id="navbar">
     <li><g:link controller="user" action="startpage">Home</g:link></li>
     <li><g:link controller="contest" action="index">Contest</g:link></li>
+    <g:if test="${session.user?.role == "admin"}">
+      <li><g:link controller="contest" action="edit">Edit Contest</g:link></li>
+    </g:if>
     <li><a href="#">Help</a></li>
   </div>
 </div>

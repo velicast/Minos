@@ -35,7 +35,7 @@
               <td>${actualContest.id}</td>
               <td>${fieldValue(bean: actualContest, field: "title")}</td>
               <g:if test="${actualContest.status != Contest.ST_FINISHED}">
-                <td><g:link action="unregister" params="[contestID:actualContest.id]">Edit</g:link></td>
+                <td><g:link action="edit" params="[contestID:actualContest.id]">Edit</g:link></td>
               </g:if>
               <g:else>
                 <td>The contest has finished</td>

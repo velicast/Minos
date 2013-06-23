@@ -22,7 +22,14 @@ class ContestAdministerController {
   }
   
   def edit() {
+    if (session.user == null || session.user.role != "admin") {
+      redirect(controller: "user", action: "login")
+      return
+    }
     
+    Contest contest = Contest.get(params.contestID)
+    
+    [contest: contest]
   }
   
   def create() {
@@ -35,8 +42,8 @@ class ContestAdministerController {
   
   def docreate() {
     def title = params.title
-    Date starttime = Date.parse("dd/MM/yyyy H:m", params.starttime)
-    Date endtime = Date.parse("dd/MM/yyyy H:m", params.endtime)
+    Date starttime = Date.parse("yyyy/MM/dd H:m", params.starttime)
+    Date endtime = Date.parse("yyyy/MM/dd H:m", params.endtime)
     
     Contest contest = new Contest()
     contest.title = title

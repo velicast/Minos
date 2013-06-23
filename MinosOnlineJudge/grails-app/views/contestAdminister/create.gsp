@@ -31,8 +31,6 @@
               <td><label for="comment">Start time:</label></td>
               <td><input type="text" name="starttime" /></td>
             </tr>
-<html>
-  <head>
             <tr>
               <td><label for="comment">End time:</label></td>
               <td><input type="text" name="endtime" /></td>

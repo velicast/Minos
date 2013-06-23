@@ -15,38 +15,29 @@
   <body>
     <g:render template="/layouts/editcontest" />
     
-    <div id="list-contest" class="content scaffold-list" role="main">
-      <h1>Active Contest</h1>
-      <g:if test="${flash.message}">
-        <div class="message" role="status">${flash.message}</div>
-      </g:if>
-      
-      <table>
-        <thead>
-          <tr>
-            <g:sortableColumn property="title" title="${message(code: 'contest.id.label', default: 'ID')}" />
-            <g:sortableColumn property="title" title="${message(code: 'contest.title.label', default: 'Name')}" />
-            <g:sortableColumn property="title" title="${message(code: 'contest.title.label', default: 'Edit')}" />
-          </tr>
-        </thead>
-        <tbody>
-          <g:each in="${contestList}" status="i" var="actualContest">
-            <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-              <td>${actualContest.id}</td>
-              <td>${fieldValue(bean: actualContest, field: "title")}</td>
-              <g:if test="${actualContest.status != Contest.ST_FINISHED}">
-                <td><g:link action="unregister" params="[contestID:actualContest.id]">Edit</g:link></td>
-              </g:if>
-              <g:else>
-                <td>The contest has finished</td>
-              </g:else>
+    <div align="center">
+      <div id="submitpanel" class="submit">
+        <h1>Create Contest</h1>
+        <g:uploadForm controller="contestAdminister" action="update" name="submissionForm">
+          <table>
+            <tr>
+              <td><label for="comment">Title:</label></td>
+              <td><input type="text" name="title" value="${contest.title}" /></td>
             </tr>
-          </g:each>
-        </tbody>
-      </table>
-
-      <div class="pagination">
-        <g:paginate total="${contestTotal}" />
+            <tr>
+              <td><label for="comment">Start time:</label></td>
+              <td><input type="text" name="starttime" value="${contest.startTime.toString()}" /></td>
+            </tr>
+            <tr>
+              <td><label for="comment">End time:</label></td>
+              <td><input type="text" name="endtime" value="${contest.endTime.toString()}" /></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td style="text-align: center"><g:submitButton name="submit" value="Submit" /></td>
+            </tr>
+          </table>
+        </g:uploadForm>
       </div>
     </div>
   </body>

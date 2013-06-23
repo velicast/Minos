@@ -21,7 +21,7 @@
     <div align="center">
       <div id="submitpanel" class="submit">
         <h1>Create Contest</h1>
-        <g:uploadForm controller="contest" action="docreate" name="submissionForm">
+        <g:uploadForm controller="contestAdminister" action="docreate" name="submissionForm">
           <table>
             <tr>
               <td><label for="comment">Title:</label></td>
@@ -31,6 +31,8 @@
               <td><label for="comment">Start time:</label></td>
               <td><input type="text" name="starttime" /></td>
             </tr>
+<html>
+  <head>
             <tr>
               <td><label for="comment">End time:</label></td>
               <td><input type="text" name="endtime" /></td>

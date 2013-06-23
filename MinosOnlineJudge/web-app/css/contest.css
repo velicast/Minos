@@ -45,6 +45,7 @@ root {
 }
 
 #showproblem li {
+    font-size: 0.9em;
     margin-left: 50px;
 }
 

@@ -11,6 +11,7 @@
   <head>
     <meta name="layout" content="main">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <g:javascript src="clarificationChecker.js" />
     <title>Clarifications - Minos</title>
   </head>
   <body>
@@ -34,10 +35,10 @@
             <tr>
               <td>${actualClarification.id}</td>
               <td>${actualClarification.user.username}</td>
-              <td>${actualClarification.problem.title}</td>
+              <td>${actualClarification.problem}</td>
               <td><g:formatDate date="${actualClarification.date}" type="datetime" format="yyyy-MM-dd HH:mm"/></td>
-              <td>${actualClarification.question}</td>
-              <td>${actualClarification.answer}</td>
+              <td><textarea readonly rows="4" cols="25">${actualClarification.question}</textarea></td>
+              <td><textarea readonly rows="4" cols="25">${actualClarification.answer}</textarea></td>
             </tr>
           </g:each>
         </tbody>
@@ -48,15 +49,15 @@
       <div id="makeclarification" class="submit">
         <g:if test="${contest.status != Contest.ST_FINISHED}">
           <h1>Make a clarification</h1>
-          <g:uploadForm  controller="clarification" action="submit"  name="submissionForm">
+          <g:uploadForm controller="clarification" action="submit"  name="submissionForm" onsubmit="return checkQuestion()">
             <table>
               <tr>
                 <td><label for="comment">Problem:</label></td>
                 <td>
-                  <select name="problemID">
-                    <option value="0">General</option>
+                  <select name="problemName">
+                    <option value="General">General</option>
                     <g:each in="${problemList}" status="i" var="actualProblem">
-                      <option value=${actualProblem.id}>${actualProblem.alphabet}. ${actualProblem.title}</option>
+                      <option value="${actualProblem.alphabet}. ${actualProblem.title}">${actualProblem.alphabet}. ${actualProblem.title}</option>
                     </g:each>
                   </select>
                 </td>
@@ -70,6 +71,8 @@
                 <td style="text-align: center"><g:submitButton name="submit" value="Submit" /></td>
               </tr>
             </table>
+            <g:hiddenField name="submitDate"/>
+            <g:hiddenField name="contestID" value="${contest.id}"/>
           </g:uploadForm>
         </g:if>
         <g:else>

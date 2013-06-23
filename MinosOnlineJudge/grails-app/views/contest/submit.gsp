@@ -12,7 +12,7 @@
     <meta name="layout" content="main">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Submit - Minos</title>
-    <g:javascript src="submitChecker.js" />
+    <g:javascript src="submissionChecker.js" />
   </head>
   <body>
     <g:render template="/layouts/contest" />

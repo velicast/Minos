@@ -12,11 +12,12 @@ class SubmissionController {
    * Realiza el envi'o de una solucio'n al Minos. El usuario actual
    * es el que lo realiza
    * 
-   * @param id Identificador del problema al que se le realiza
+   * @param problemID Identificador del problema al que se le realiza
    *        el envi'o
+   * @param submitDate hora a la que se realiza el envi'o
+   * @param language Identificador del lenguaje en el que se realiza el envi'o
    */
   def submit() {
-    /* Chequear permiso de acceso aqui' */
     
     def sourceFile = request.getFile("source")
     def fileName = sourceFile.getOriginalFilename()
@@ -51,12 +52,12 @@ class SubmissionController {
     if (!dstPath.exists()) {
       dstPath.mkdir()
     }
-    //try {
+    try {
       sourceFile.transferTo(new File(submission.rootPath + "/" + submission.fileName))
-    //} catch (Exception ex) {
+    } catch (Exception ex) {
         // LOG error here!
-     // submission.status = Minos.INTERNAL_ERROR
-     // submission.save(true)
-   // }
+      submission.status = Minos.INTERNAL_ERROR
+      submission.save(true)
+    }
   }
 }

@@ -263,7 +263,19 @@ class ContestController {
       redirect(controller: "user", action: "login")
       return
     }
+  }
+  
+  def docreate() {
+    def title = params.title
+    Date starttime = Date.parse("dd/MM/yyyy H:m", params.starttime)
+    Date endtime = Date.parse("dd/MM/yyyy H:m", params.endtime)
     
+    Contest contest = new Contest()
+    contest.title = title
+    contest.startTime = starttime
+    contest.endTime = endtime
     
+    contest.save()
+    redirect(controller: "contest", action: "edit")
   }
 }

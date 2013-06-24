@@ -133,3 +133,19 @@ root {
     background: #E5E5E5;
     border-radius: 2px;
 }
+
+#problemcreate {
+    border: .1em solid #C0C0C0;
+    margin: 30px 30px 5px 30px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#problemcreate h1 {
+    text-align: center;
+}
+
+#problemcreate label[for=comment] {
+    font-size: 1.1em;
+    font-weight: bold;
+}

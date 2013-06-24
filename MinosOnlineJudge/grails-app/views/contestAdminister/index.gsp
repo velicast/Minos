@@ -13,7 +13,7 @@
     <title>Edit contest</title>
   </head>
   <body>
-    <g:render template="/layouts/editcontest" />
+    <g:render template="/layouts/contestcreate" />
     
     <div id="list-contest" class="content scaffold-list" role="main">
       <h1>Active Contest</h1>

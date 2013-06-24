@@ -7,6 +7,7 @@
 
 <div id="contestbar">
     <ul>
-      <li><g:link controller="contestAdminister" action="edit" params="[contestID:contest.id]">Edit</g:link></li>
+      <li><g:link controller="contestAdminister" action="index">Contests</g:link></li>
+      <li><g:link controller="contestAdminister" action="create">Create Contest</g:link></li>
     </ul>
 </div>

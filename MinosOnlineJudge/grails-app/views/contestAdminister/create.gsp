@@ -16,7 +16,7 @@
     <title>Create contest</title>
   </head>
   <body>
-    <g:render template="/layouts/editcontest" />
+    <g:render template="/layouts/contestcreate" />
     
     <div align="center">
       <div id="submitpanel" class="submit">

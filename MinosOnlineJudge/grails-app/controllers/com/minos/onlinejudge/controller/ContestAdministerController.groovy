@@ -32,6 +32,21 @@ class ContestAdministerController {
     [contest: contest]
   }
   
+  def update() {
+    Contest contest = Contest.get(params.contestID)
+    
+    def title = params.title
+    Date starttime = Date.parse("yyyy/MM/dd H:m", params.starttime)
+    Date endtime = Date.parse("yyyy/MM/dd H:m", params.endtime)
+    
+    contest.title = title
+    contest.startTime = starttime
+    contest.endTime = endtime
+    contest.save()
+    
+    redirect(controller: "contestAdminister", action: "edit", params: [contestID: contest.id])
+  }
+  
   def create() {
           // So'lo usuarios logeados
     if (session.user == null || session.user.role != "admin") {

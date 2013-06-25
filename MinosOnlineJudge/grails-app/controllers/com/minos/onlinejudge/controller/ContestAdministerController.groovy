@@ -66,20 +66,6 @@ class ContestAdministerController {
     contest.endTime = endtime
     
     contest.save()
-    ContestTimeTracer.trace(contest)
-    
     redirect(controller: "contestAdminister", action: "index")
-  }
-  
-  def problems() {
-       // So'lo usuarios logeados
-    if (session.user == null || session.user.role != "admin") {
-      redirect(controller: "user", action: "login")
-      return
-    }
-    
-    Contest contest = Contest.get(params.contestID)
-    
-    [problemList: contest.problems.sort(), contest: contest]
   }
 }

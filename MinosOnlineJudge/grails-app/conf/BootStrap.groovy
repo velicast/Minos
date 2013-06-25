@@ -33,7 +33,7 @@ class BootStrap {
     contest.title = "Test Contest #1"
     contest.status = Contest.ST_RUNNING
     contest.startTime = new Date(113, 5, 22,  7, 30, 0)
-    contest.endTime   = new Date(113, 5, 25, 19, 30, 0)
+    contest.endTime   = new Date(113, 5, 23, 19, 30, 0)
     contest.save(true)
     
     Contest contest1 = new Contest()

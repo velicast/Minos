@@ -32,7 +32,15 @@ class ContestController {
     
     for (currContest in contests) {
       def registered = contestService.isRegistered(currContest, session.user)
-      resultList.add([currContest, registered])
+      
+      Calendar now = Calendar.getInstance()
+      def countDown = contestService.getDiffTime(now.getTime(), currContest.startTime)
+      def duration = contestService.getDiffTime(currContest.startTime, currContest.endTime)
+      if (currContest.status == Contest.ST_RUNNING) {
+        countDown = contestService.getDiffTime(now.getTime(), currContest.endTime)
+      }
+      
+      resultList.add([currContest, registered, duration, countDown])
     }
     
     resultList.sort { a, b ->
@@ -56,8 +64,10 @@ class ContestController {
     if (!checkAccess(contest)) {
       return
     }
+    Calendar now = Calendar.getInstance()
+    def rt = contestService.getDiffTime(now.getTime(), contest.endTime)
     
-    [problemList: contest.problems.sort(), contest: contest]
+    [problemList: contest.problems.sort(), contest: contest, remainingTime: rt]
   }
   
   /**
@@ -75,8 +85,10 @@ class ContestController {
     if (!checkAccess(contest)) {
       return
     }
+    Calendar now = Calendar.getInstance()
+    def rt = contestService.getDiffTime(now.getTime(), contest.endTime)
     
-    [problemList: contest.problems.sort(), contest: contest]
+    [problemList: contest.problems.sort(), contest: contest, remainingTime: rt]
   }
   
   /**
@@ -100,8 +112,10 @@ class ContestController {
     if (contestant) {
       submissions = contestant.submissions.sort().reverse()
     }
+    Calendar now = Calendar.getInstance()
+    def rt = contestService.getDiffTime(now.getTime(), contest.endTime)
     
-    [submissions: submissions, contest: contest]
+    [submissions: submissions, contest: contest, remainingTime: rt]
   }
   
   /**
@@ -120,7 +134,7 @@ class ContestController {
     }
     
       // codigo html de la tabla generada
-    def table = "<table border=1>\n"
+    def table = "<table>\n<thead>\n"
     table += "<tr>\n"
     table += "<th>#</th>\n"
     table += "<th>Contestant</th>\n"
@@ -128,7 +142,7 @@ class ContestController {
     table += "<th>Penalty</th>\n"
     
     if (contest.contestants.size() == 0) {
-      table += "</table>" 
+      table += "</thead>\n</table>" 
     } else {
         Standings standings = new Standings(contest)
         int cols = standings.problemIdentifiers.length
@@ -137,7 +151,7 @@ class ContestController {
         for (int i = 0; i < cols; ++i) {
         table += "<th>" + standings.problemIdentifiers[i] + "</th>\n"
         }
-        table += "</tr>\n"
+        table += "</tr>\n</thead>\n<tbody>"
         for (int i = 0; i < rows; ++i) {
           def r = standings.positions[i]
           table += "<tr>\n"
@@ -152,10 +166,13 @@ class ContestController {
           }
           table += "</tr>\n"
         }
-        table += "</table>"
+        table += "</tbody>\n</table>"
     }
 
-    [htmlTable: table, contest: contest]
+    Calendar now = Calendar.getInstance()
+    def rt = contestService.getDiffTime(now.getTime(), contest.endTime)
+    
+    [htmlTable: table, contest: contest, remainingTime: rt]
   }
   
   /* Despliega el formulario para hacer clarificaciones por parte del
@@ -175,8 +192,10 @@ class ContestController {
     }
     
     def clarifications = contest.clarifications.sort()
+    Calendar now = Calendar.getInstance()
+    def rt = contestService.getDiffTime(now.getTime(), contest.endTime)
     
-    [problemList: contest.problems.sort(), clarificationList: clarifications, contest: contest]
+    [problemList: contest.problems.sort(), clarificationList: clarifications, contest: contest, remainingTime: rt]
   }
   
   /**

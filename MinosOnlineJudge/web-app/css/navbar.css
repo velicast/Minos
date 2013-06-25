@@ -11,15 +11,9 @@ root {
 }
 
 #navbar {
-    background: #51a055;
-    background: -moz-linear-gradient(top,  #51a055 0%, #386631 23%, #4c9348 78%, #84b784 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#51a055), color-stop(23%,#386631), color-stop(78%,#4c9348), color-stop(100%,#84b784));
-    background: -webkit-linear-gradient(top,  #51a055 0%,#386631 23%,#4c9348 78%,#84b784 100%);
-    
-    
-    margin: 15px 30px 0px 30px;
-    padding: 5px 50px 5px 50px;
-    border: .2em solid #48802C;
+    margin: 10px 30px 0px 30px;
+    padding: 3px 50px 3px 50px;
+    border: .2em solid #51a055;
     border-radius: 20px;
 }
 
@@ -31,7 +25,7 @@ root {
 #navbar li {
     display: inline;
     text-align: center;
-    font-size: 1.9em;
+    font-size: 1.5em;
 }
 
 #navbar li a {
@@ -45,14 +39,7 @@ root {
     padding: 0px 10px 0px 10px;
     border-radius: 10px;
     
-    background: #9b964f;
-    background: -moz-linear-gradient(top,  #9b964f 0%, #636631 23%, #909147 78%, #b2b584 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#9b964f), color-stop(23%,#636631), color-stop(78%,#909147), color-stop(100%,#b2b584));
-    background: -webkit-linear-gradient(top,  #9b964f 0%,#636631 23%,#909147 78%,#b2b584 100%);
-    background: -o-linear-gradient(top,  #9b964f 0%,#636631 23%,#909147 78%,#b2b584 100%);
-    background: -ms-linear-gradient(top,  #9b964f 0%,#636631 23%,#909147 78%,#b2b584 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9b964f', endColorstr='#b2b584',GradientType=0 );
-    
+    background: #808080;
 }
 
 #contestbar {

@@ -75,6 +75,21 @@ class ProblemController {
     htmlcode += "<h3>memory limit per test: " + (problem.memoryLimit/1024) + " megabytes</h3>"
     htmlcode += file.getText()
     
-    [problem: problem, contest: problem.contest, htmlProblem: htmlcode]
+    Calendar now = Calendar.getInstance()
+    def rt = contestService.getDiffTime(now.getTime(), contest.endTime)
+    
+    [problem: problem, contest: problem.contest, htmlProblem: htmlcode, remainingTime: rt]
+  }
+  
+  def create() {
+         // So'lo usuarios logeados
+    if (session.user == null || session.user.role != "admin") {
+      redirect(controller: "user", action: "login")
+      return
+    }
+    
+    Contest contest = Contest.get(params.contestID)
+    
+    [problemList: contest.problems.sort(), contest: contest]
   }
 }

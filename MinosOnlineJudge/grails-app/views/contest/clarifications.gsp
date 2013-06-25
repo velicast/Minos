@@ -18,16 +18,16 @@
     <g:render template="/layouts/contest" />
     
     <div id="history" class="content scaffold-list" role="main">
-      <h1>History</h1>
+      <h1>Clarifications</h1>
       <table>
         <thead>
           <tr>
-            <g:sortableColumn property="title" title="${message(code: 'clarification.id.label', default: 'ID')}" />
-            <g:sortableColumn property="title" title="${message(code: 'clarification.user.username.label', default: 'Author')}" />
-            <g:sortableColumn property="title" title="${message(code: 'clarification.problem.label', default: 'Problem')}" />
-            <g:sortableColumn property="title" title="${message(code: 'clarification.date.label', default: 'When')}" />
-            <g:sortableColumn property="title" title="${message(code: 'clarification.question.label', default: 'Question')}" />
-            <g:sortableColumn property="title" title="${message(code: 'clarification.answer.label', default: 'Answer')}" />
+            <th>ID</th>
+            <th>Author</th>
+            <th>Problem</th>
+            <th>When</th>
+            <th>Question</th>
+            <th>Answer</th>
           </tr>
         </thead>
         <tbody>
@@ -36,9 +36,9 @@
               <td>${actualClarification.id}</td>
               <td>${actualClarification.user.username}</td>
               <td>${actualClarification.problem}</td>
-              <td><g:formatDate date="${actualClarification.date}" type="datetime" format="yyyy-MM-dd HH:mm"/></td>
-              <td><textarea readonly rows="4" cols="25">${actualClarification.question}</textarea></td>
-              <td><textarea readonly rows="4" cols="25">${actualClarification.answer}</textarea></td>
+              <td>${actualClarification.date.format("dd/MM/yyyy HH:mm:ss")}</td>
+              <td><textarea readonly>${actualClarification.question}</textarea></td>
+              <td><textarea readonly>${actualClarification.answer}</textarea></td>
             </tr>
           </g:each>
         </tbody>

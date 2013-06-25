@@ -15,7 +15,7 @@
     <g:render template="/layouts/contest" />
     
     <div id="list-problems" class="content scaffold-list" role="main">
-      <h1>Problem List</h1>
+      <h1>Problems</h1>
       <g:if test="${flash.message}">
         <div class="message" role="status">${flash.message}</div>
       </g:if>
@@ -23,15 +23,15 @@
       <table>
         <thead>
           <tr>
-            <g:sortableColumn property="title" title="${message(code: 'problem.id.label', default: 'ID')}" />
-            <g:sortableColumn property="title" title="${message(code: 'problem.title.label', default: 'Name')}" />
-            <g:sortableColumn property="title" title="${message(code: 'problem.timeLimit.label', default: 'Time Limit')}" />
-            <g:sortableColumn property="title" title="${message(code: 'problem.memoryLimit.label', default: 'Memory Limit')}" />
+            <th>ID</th>
+            <th>Name</th>
+            <th>Time Limit</th>
+            <th>Memory Limit</th>
           </tr>
         </thead>
         <tbody>
           <g:each in="${problemList}" status="i" var="actualProblem">
-            <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
+            <tr>
               <td>${actualProblem.id}</td>
               <td><g:link controller="problem" action="show" params="[problemID:actualProblem.id]">${actualProblem.title}</g:link></td>
               <td>${actualProblem.timeLimit / 1000} seconds</td>

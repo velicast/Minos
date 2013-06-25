@@ -13,7 +13,10 @@
   </head>
   <body>
     <g:render template="/layouts/contest" />
-    <h1>Standings</h1>
-    ${htmlTable}
+    
+    <div id="standings" class="content scaffold-list" role="main">
+      <h1>Standings</h1>
+      ${htmlTable}
+    </div>
   </body>
 </html>

@@ -29,7 +29,7 @@ import java.io.InputStream;
  */
 public class Minos {
 
-  public static final String ROOT_DIR       = "/home/camilourd/NetBeansProjects/Minos/root";  // depende del computador
+  public static final String ROOT_DIR       = "/home/arch/Minos/root";  // depende del computador
   public static final String COMPILE_DIR    = ROOT_DIR + "/compile";
   public static final String SANDBOX_DIR    = ROOT_DIR + "/sandbox";
   public static final String CHECKER_DIR    = ROOT_DIR + "/checker";

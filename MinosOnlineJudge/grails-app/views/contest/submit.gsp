@@ -11,8 +11,8 @@
   <head>
     <meta name="layout" content="main">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Submit - Minos</title>
     <g:javascript src="submissionChecker.js" />
+    <title>Submit - Minos</title>
   </head>
   <body>
     <g:render template="/layouts/contest" />
@@ -20,6 +20,7 @@
     <div align="center">
       <div id="submitpanel" class="submit">
         <g:if test="${contest.status != Contest.ST_FINISHED}">
+          <h1>Submit</h1>
           <g:uploadForm controller="submission" action="submit" name="submissionForm" onsubmit="return checkTargetFile()">
             <table>
               <tr>
@@ -46,13 +47,11 @@
                 <td><input type="file" name="source" size="10"/></td>
               </tr>
               <tr>
-                <td colspan="2"><g:hiddenField name="submitDate"/></td>
-              </tr>
-              <tr>
                 <td></td>
                 <td style="text-align: center"><g:submitButton name="submit" value="Submit" /></td>
               </tr>
             </table>
+            <g:hiddenField name="submitDate"/>
           </g:uploadForm>
         </g:if>
         <g:else>

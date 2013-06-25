@@ -20,5 +20,6 @@
 </div>
 
 <div align="center" class="timebar">
-    <label for="timetitle">Remaining Time:</label><label for="remtime">02:25</label>
+    <label for="timetitle">Remaining Time:</label>
+    <label for="remtime">${remainingTime.format("HH:mm:ss")}</label>
 </div>

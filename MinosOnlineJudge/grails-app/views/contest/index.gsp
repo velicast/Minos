@@ -23,19 +23,26 @@
       <table>
         <thead>
           <tr>
-            <g:sortableColumn property="title" title="${message(code: 'contest.title.label', default: 'Name')}" />
-            <g:sortableColumn property="startTime" title="${message(code: 'contest.startTime.label', default: 'Start')}" />
-            <g:sortableColumn property="endTime" title="${message(code: 'contest.endTime.label', default: 'End')}" />
-            <g:sortableColumn property="title" title="${message(code: 'contest.title.label', default: 'Register')}" />
+            <th>Name</th>
+            <th>Start</th>
+            <th>Duration</th>
+            <th></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
           <g:each in="${contestList}" status="i" var="actualContest">
             <g:if test="${actualContest.get(0).status != Contest.ST_FINISHED}">
-              <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
+              <tr>
                 <td>${fieldValue(bean: actualContest.get(0), field: "title")}</td>
-                <td><g:formatDate date="${actualContest.get(0).startTime}" type="datetime" format="yyyy-MM-dd HH:mm"/></td>
-                <td><g:formatDate date="${actualContest.get(0).endTime}" type="datetime" format="yyyy-MM-dd HH:mm"/></td>
+                <td>${actualContest.get(0).startTime.format("dd/MM/yyyy")}</td>
+                <td>${actualContest.get(2).format("HH:mm")}</td>
+                <g:if test="${actualContest.get(0).status == Contest.ST_CREATED}">
+                  <td>Start in: ${actualContest.get(3).format("HH:mm:ss")}</td>
+                </g:if>
+                <g:else>
+                  <td>Remaining time: ${actualContest.get(3).format("HH:mm:ss")}</td>
+                </g:else>
                 <g:if test="${actualContest.get(1) == false}">
                   <td><g:link action="register" params="[contestID:actualContest.get(0).id]">Register</g:link></td>
                 </g:if>
@@ -51,18 +58,15 @@
         </tbody>
       </table>
 
-      <div class="pagination">
-        <g:paginate total="${contestTotal}" />
-      </div>
-
       <h1>Past Contest</h1>
       <table>
         <thead>
           <tr>
-            <g:sortableColumn property="title" title="${message(code: 'contest.title.label', default: 'Name')}" />
-            <g:sortableColumn property="startTime" title="${message(code: 'contest.startTime.label', default: 'Start')}" />
-            <g:sortableColumn property="endTime" title="${message(code: 'contest.endTime.label', default: 'End')}" />
-            <g:sortableColumn property="title" title="${message(code: 'contest.title.label', default: 'Register')}" />
+            <th>Name</th>
+            <th>Start</th>
+            <th>Duration</th>
+            <th></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -70,8 +74,9 @@
             <g:if test="${actualContest.get(0).status == Contest.ST_FINISHED}">
               <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
                 <td>${fieldValue(bean: actualContest.get(0), field: "title")}</td>
-                <td><g:formatDate date="${actualContest.get(0).startTime}" type="datetime" format="yyyy-MM-dd HH:mm"/></td>
-                <td><g:formatDate date="${actualContest.get(0).endTime}" type="datetime" format="yyyy-MM-dd HH:mm"/></td>
+                <td>${actualContest.get(0).startTime.format("dd/MM/yyyy")}</td>
+                <td>${actualContest.get(2).format("HH:mm")}</td>
+                <td></td>
                 <td><g:link action="problems" params="[contestID:actualContest.get(0).id]">Enter</g:link></td>
               </tr>
             </g:if>

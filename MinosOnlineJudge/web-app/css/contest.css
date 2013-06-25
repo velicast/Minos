@@ -53,9 +53,20 @@ root {
     border: 0.1em solid #C0C0C0;
 }
 
-#showproblem table p {
+#showproblem table {
     font-size: 0.9em;
     margin: 0px;
+    width: 100%;
+}
+
+#showproblem p {
+    font-size: 0.9em;
+    text-align: justify;
+}
+
+#showproblem pre {
+    font-size: 1em;
+    line-height: 16px;
 }
 
 #showproblem table td {
@@ -63,12 +74,12 @@ root {
 }
 
 #showproblem table tr:nth-child(odd) {
-    background: #BAD1EB;
+    background: #EFFFE1;
     font-weight: bold;
 }
 
 #showproblem table tr:nth-child(even) {
-    background: #DAF6B2;
+    background: #D1FFCE;
 }
 
 #showsubmit {
@@ -81,14 +92,18 @@ root {
     border-radius: 5px;
 }
 
+#showsubmit table td {
+    padding: 3px 10px 3px 3px;
+}
+
 #showsubmit label[for=comment] {
-    font-size: 1em;
+    font-size: 0.9em;
     font-weight: bold;
 }
 
 #showsubmit select {
     padding: 2px 5px 2px 5px;
-    width: 225px;
+    width: 270px;
     background-color: #DAF6B2;
 }
 
@@ -101,19 +116,44 @@ root {
 
 #showsubmit input[type=file] {
     background-color: #DAF6B2;
-    width: 210px;
+    width: 256px;
+}
+
+#showsubmit table {
+    border: 0px;
+    margin: 0px;
+}
+
+#showsubmit td, tr {
+    border: 0px;
+    background: white;
 }
 
 .submit {
     border: .1em solid #C0C0C0;
     margin: 30px 30px 5px 30px;
     padding: 10px;
-    width: 480px;
+    width: 450px;
     border-radius: 5px;
 }
 
+.submit h1 {
+    text-align: center;
+    margin: 10px;
+}
+
+.submit table {
+    border: 0px;
+    margin: 0px;
+}
+
+.submit td, tr {
+    border: 0px;
+    background: white;
+}
+
 .submit label[for=comment] {
-    font-size: 1.1em;
+    font-size: 1em;
     font-weight: bold;
 }
 
@@ -125,6 +165,11 @@ root {
 
 .submit input[type=file] {
     background-color: #DAF6B2;
+    width: 307px;
+}
+
+.submit textarea {
+    height: 100px;
 }
 
 .submit input[type=submit] {
@@ -132,4 +177,37 @@ root {
     width: 150px;
     background: #E5E5E5;
     border-radius: 2px;
+}
+
+#problemcreate {
+    border: .1em solid #C0C0C0;
+    margin: 30px 30px 5px 30px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#problemcreate h1 {
+    text-align: center;
+}
+
+#problemcreate label[for=comment] {
+    font-size: 1em;
+    font-weight: bold;
+}
+
+#history textarea {
+    width: 300px;
+    height: 100px;
+}
+
+#history td:nth-child(5) {
+    width: 310px;
+}
+
+#history td:nth-child(6) {
+    width: 310px;
+}
+
+#standings td:nth-child(n + 5) {
+    width: 70px;
 }

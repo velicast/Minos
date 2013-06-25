@@ -11,8 +11,8 @@
   <head>
     <meta name="layout" content="main">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Problem - ${problem.id} - Minos</title>
     <g:javascript src="submissionChecker.js" />
+    <title>Problem - ${problem.id} - Minos</title>
   </head>
   <body>
     <g:render template="/layouts/contest" />
@@ -43,14 +43,12 @@
               <td><input type="file" name="source" size="10"/></td>
             </tr>
             <tr>
-              <td><g:hiddenField name="submitDate"/></td>
-              <td><g:hiddenField name="problemID" value="${problem.id}"/></td>
-            </tr>
-            <tr>
               <td></td>
-              <td><g:submitButton name="submit" value="Submit" /></td>
+              <td><g:submitButton name="submit" value="Submit"/></td>
             </tr>
           </table>
+          <g:hiddenField name="submitDate"/>
+          <g:hiddenField name="problemID" value="${problem.id}"/>
         </g:uploadForm>
       </g:if>
       <g:else>

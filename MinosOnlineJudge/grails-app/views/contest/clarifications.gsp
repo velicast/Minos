@@ -49,7 +49,7 @@
       <div id="makeclarification" class="submit">
         <g:if test="${contest.status != Contest.ST_FINISHED}">
           <h1>Make a clarification</h1>
-          <g:uploadForm controller="clarification" action="submit"  name="submissionForm" onsubmit="return checkQuestion()">
+          <g:uploadForm controller="clarification" action="submit"  name="clarificationForm" onsubmit="return checkQuestion()">
             <table>
               <tr>
                 <td><label for="comment">Problem:</label></td>

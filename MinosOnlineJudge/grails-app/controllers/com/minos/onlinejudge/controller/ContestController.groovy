@@ -64,10 +64,8 @@ class ContestController {
     if (!checkAccess(contest)) {
       return
     }
-    Calendar now = Calendar.getInstance()
-    def rt = contestService.getDiffTime(now.getTime(), contest.endTime)
     
-    [problemList: contest.problems.sort(), contest: contest, remainingTime: rt]
+    [problemList: contest.problems.sort(), contest: contest, remainingTime: contest.endTime]
   }
   
   /**
@@ -85,10 +83,8 @@ class ContestController {
     if (!checkAccess(contest)) {
       return
     }
-    Calendar now = Calendar.getInstance()
-    def rt = contestService.getDiffTime(now.getTime(), contest.endTime)
     
-    [problemList: contest.problems.sort(), contest: contest, remainingTime: rt]
+    [problemList: contest.problems.sort(), contest: contest, remainingTime: contest.endTime]
   }
   
   /**
@@ -112,10 +108,8 @@ class ContestController {
     if (contestant) {
       submissions = contestant.submissions.sort().reverse()
     }
-    Calendar now = Calendar.getInstance()
-    def rt = contestService.getDiffTime(now.getTime(), contest.endTime)
     
-    [submissions: submissions, contest: contest, remainingTime: rt]
+    [submissions: submissions, contest: contest, remainingTime: contest.endTime]
   }
   
   /**
@@ -168,11 +162,8 @@ class ContestController {
         }
         table += "</tbody>\n</table>"
     }
-
-    Calendar now = Calendar.getInstance()
-    def rt = contestService.getDiffTime(now.getTime(), contest.endTime)
     
-    [htmlTable: table, contest: contest, remainingTime: rt]
+    [htmlTable: table, contest: contest, remainingTime: contest.endTime]
   }
   
   /* Despliega el formulario para hacer clarificaciones por parte del
@@ -192,10 +183,8 @@ class ContestController {
     }
     
     def clarifications = contest.clarifications.sort()
-    Calendar now = Calendar.getInstance()
-    def rt = contestService.getDiffTime(now.getTime(), contest.endTime)
     
-    [problemList: contest.problems.sort(), clarificationList: clarifications, contest: contest, remainingTime: rt]
+    [problemList: contest.problems.sort(), clarificationList: clarifications, contest: contest, remainingTime: contest.endTime]
   }
   
   /**

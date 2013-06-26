@@ -5,6 +5,24 @@
 
 <%@ page contentType="text/html;charset=UTF-8" %>
 
+<g:javascript src="jquery.js" />
+<g:javascript src="jquery.jcountdown.js" />
+<script type="text/javascript">
+  $(document).ready(function() {
+    $("#countdown").countdown({
+      date: "${remainingTime.format("MM dd, yyyy HH:mm:ss")}",
+      hourText: ":",
+      minText: ":",
+      secText: "",
+      dayText: ":",
+      leadingZero: true,
+      onComplete: function( event ){
+        $(this).html("The contest has finished");
+      }
+    });
+  });
+</script>
+
 <div id="contestbar">
     <ul>
       <li><g:link controller="contest" action="problems" params="[contestID:contest.id]">Problems</g:link></li>
@@ -21,5 +39,6 @@
 
 <div align="center" class="timebar">
     <label for="timetitle">Remaining Time:</label>
-    <label for="remtime">${remainingTime.format("HH:mm:ss")}</label>
+    <label id="countdown" for="remtime"></label>
+    
 </div>

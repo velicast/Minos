@@ -25,7 +25,7 @@ class BootStrap {
       admin.role = "admin"
       admin.username = "admin"
       admin.dbUsername = "admin"
-      admin.password = ("admin").encodeAsPassword()
+      admin.password = ("minosonlinejudge").encodeAsPassword()
       admin.email = "admin@minos.com"
       admin.institution = "Universidad Nacional de Colombia"
       admin.save(true)
@@ -42,8 +42,8 @@ class BootStrap {
     if (!c) {
       contest = new Contest()
       contest.title = "Be a Hacker!"
-      contest.status = Contest.ST_RUNNING
-      contest.startTime = new Date(113, 5, 26,  7, 00, 0)
+      contest.status = Contest.ST_CREATED;
+      contest.startTime = new Date(113, 5, 25,  22, 00, 0)
       contest.endTime   = new Date(113, 5, 26, 14, 00, 0)
       contest.save(true)
     } else {
@@ -232,7 +232,7 @@ class BootStrap {
       contest1.addToProblems(p6) 
     }
     
-    p = Problem.findByTitle("Chat Room")
+    p = Problem.findByTitle("System of Equations")
     
     if (!p) {
     
@@ -258,7 +258,7 @@ class BootStrap {
       contest.addToProblems(p7) 
     }
     
-    p = Problem.findByTitle("Chat Room")
+    p = Problem.findByTitle("Minimum Scalar Product")
     
     if (!p) {
     

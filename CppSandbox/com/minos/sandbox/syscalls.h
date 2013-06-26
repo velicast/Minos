@@ -532,9 +532,6 @@ int init_syscall_table() {
 #ifdef __NR_fcntl64
   syscall_blocked[__NR_fcntl64] = true;
 #endif
-#ifdef __NR_gettid
-  syscall_blocked[__NR_gettid] = true;
-#endif
 #ifdef __NR_readahead
   syscall_blocked[__NR_readahead] = true;
 #endif
@@ -654,9 +651,6 @@ int init_syscall_table() {
 #endif
 #ifdef __NR_fstatfs64
   syscall_blocked[__NR_fstatfs64] = true;
-#endif
-#ifdef __NR_tgkill
-  syscall_blocked[__NR_tgkill] = true;
 #endif
 #ifdef __NR_utimes
   syscall_blocked[__NR_utimes] = true;

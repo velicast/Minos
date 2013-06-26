@@ -642,3 +642,22 @@ label[for=titleaplication] {
     font-weight: bold;
     margin:0px;
 }
+
+#summary {
+    border: .1em solid #C0C0C0;
+    border-radius: 10px;
+    margin: 30px 50px 0px 50px;
+    padding: 10px 20px 10px 20px;
+}
+
+#summary h1 {
+    margin: 5px 30px 20px 30px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+#summary p {
+    text-align: justify;
+    font-size: 1.2em;
+}

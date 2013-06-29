@@ -28,7 +28,7 @@ class SubmissionController {
     
       // Crear nuevo Submission
     Submission submission = new Submission()
-    submission.date = new Date(params.submitDate)
+    submission.date = new Date()
     submission.fileName = fileName
     submission.contestant = contestant
     submission.language = Integer.parseInt(params.language)

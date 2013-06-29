@@ -177,6 +177,25 @@ root {
     width: 150px;
     background: #E5E5E5;
     border-radius: 2px;
+    margin-left: 30px;
+}
+
+.submit input[type=text] {
+    background-color: #DAF6B2;
+    width: 200px;
+}
+
+.submit input[type=password] {
+    background-color: #DAF6B2;
+    width: 200px;
+}
+
+.submit a {
+    margin-left: 80px;
+}
+
+.submit td {
+    padding-top: 5px;
 }
 
 #problemcreate {

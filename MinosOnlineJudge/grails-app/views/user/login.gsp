@@ -12,17 +12,34 @@
     <title>Login</title>
   </head>
   <body>
-    <h1>Login</h1>
-    <g:form name="loginForm" action="login">
-      <p>${flash?.message}</p>
-      <a>Username:</a>
-      <g:textField name="username"/>
-      <br>
-      <a>Password:</a>
-      <g:passwordField name="password"/>
-      <br>
-      <g:submitButton name="submmit" value="Login" />
-    </g:form>
-    <g:link action="signup">Register</g:link>
+    <div align="center">
+      <div id="loginpanel" class="submit">
+        <h1>Login</h1>
+        <g:form name="loginForm" action="login">
+          <table>
+            <tr>
+              <td colspan="2"><p>${flash?.message}</p></td>
+            </tr>
+            <tr>
+              <td><label for="comment">Username:</label></td>
+              <td><g:textField name="username"/></td>
+            </tr>
+            <tr>
+              <td><label for="comment">Password:</label></td>
+              <td><g:passwordField name="password"/></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><g:submitButton name="submmit" value="Login" /></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><g:link action="signup">Register</g:link></td>
+            </tr>
+          </table>          
+        </g:form>
+        
+      </div>
+    </div>
   </body>
 </html>

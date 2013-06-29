@@ -12,22 +12,34 @@
     <title>Signup</title>
   </head>
   <body>
-    <h1>Signup</h1>
-    <g:form name="loginForm" action="signup">
-      <a>Username:</a>
-      <g:textField name="username"/>
-      <br>
-      <a>Password:</a>
-      <g:passwordField name="password"/>
-      <br>
-      <a>E-mail:</a>
-      <g:textField name="email"/>
-      <br>
-      <a>Institution:</a>
-      <g:textField name="institution"/>
-      <br>
-      <g:hiddenField name="role" value="user"/>
-      <g:submitButton name="submmit" value="Register" />
-    </g:form>
+    <div align="center">
+      <div id="loginpanel" class="submit">
+        <h1>Signup</h1>
+        <g:form name="loginForm" action="signup">
+          <table>
+            <tr>
+              <td><label for="comment">Username:</label></td>
+              <td><g:textField name="username"/></td>
+            </tr>
+            <tr>
+              <td><label for="comment">Password:</label></td>
+              <td><g:passwordField name="password"/></td>
+            </tr>
+            <tr>
+              <td><label for="comment">E-mail:</label></td>
+              <td><g:textField name="email"/></td>
+            </tr>
+            <tr>
+              <td><label for="comment">Institution:</label></td>
+              <td><g:textField name="institution"/></td>
+            </tr>
+            <tr>
+              <td><g:hiddenField name="role" value="user"/></td>
+              <td><g:submitButton name="submmit" value="Register" /></td>
+            </tr>
+          </table>
+        </g:form>
+      </div>
+    </div>
   </body>
 </html>

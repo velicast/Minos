@@ -75,10 +75,8 @@ class ProblemController {
     htmlcode += "<h3>memory limit per test: " + (problem.memoryLimit/1024) + " megabytes</h3>"
     htmlcode += file.getText()
     
-    Calendar now = Calendar.getInstance()
-    def rt = contestService.getDiffTime(now.getTime(), contest.endTime)
     
-    [problem: problem, contest: problem.contest, htmlProblem: htmlcode, remainingTime: rt]
+    [problem: problem, contest: problem.contest, htmlProblem: htmlcode, remainingTime: contest.endTime]
   }
   
   def create() {

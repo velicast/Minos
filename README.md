@@ -1,7 +1,7 @@
 Minos (2013)
 =====
 
-Minos Online Judge for Programming Competitions. Academic project
+Web application - Minos Online Judge for Programming Competitions. Academic project
 
 <b>Technologies</b>
 
